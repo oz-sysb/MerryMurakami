@@ -5,7 +5,7 @@
  * Date: 2015/07/10
  * Time: 22:57
  */
-class hoge
+class sousa
 {
 	public function hoge_func()
 	{
