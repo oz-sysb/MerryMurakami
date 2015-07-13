@@ -6,7 +6,7 @@
  * Time: 22:59
  */
 
-class hakidasuTest extends PHPUnit_Framework_TestCase
+class sousaTest extends PHPUnit_Framework_TestCase
 {
 	public function testFuga()
 	{
