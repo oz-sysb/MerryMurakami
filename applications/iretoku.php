@@ -13,7 +13,7 @@ class iretoku
     private $limit = 10;
 
     private $okane = array(
-                    10 => 10,
+                    10 => 9,
                     50 => 10,
                     100 => 10,
                     500 => 10,
