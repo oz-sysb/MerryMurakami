@@ -7,6 +7,8 @@ class iretokuTest extends PHPUnit_Framework_TestCase
 
 	/**
 	 * 初期化関数
+	 *
+	 * @return void
 	 */
 	public function setup()
 	{
@@ -15,6 +17,8 @@ class iretokuTest extends PHPUnit_Framework_TestCase
 
 	/**
 	 * 入れとく関数 正常系
+	 *
+	 * @return void
 	 */
 	public function testIretokuOK($okane_obj)
 	{
@@ -24,6 +28,8 @@ class iretokuTest extends PHPUnit_Framework_TestCase
 
 	/**
 	 * 入れとく関数 異常系
+	 *
+	 * @return void
 	 */
 	public function testIretokuNG($okane_obj)
 	{
@@ -33,6 +39,8 @@ class iretokuTest extends PHPUnit_Framework_TestCase
 
 	/**
 	 * 言われた分出す 正常系
+	 *
+	 * @return void
 	 */
 	public function testIwaretabundasuOK($kingaku, $ok_okane_obj)
 	{
@@ -42,6 +50,8 @@ class iretokuTest extends PHPUnit_Framework_TestCase
 
 	/**
 	 * 言われた分出す 異常系
+	 *
+	 * @return void
 	 */
 	public function testIwaretabundasuNG($kingaku, $ng_okane_obj)
 	{
