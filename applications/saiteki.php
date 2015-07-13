@@ -27,16 +27,17 @@ class Saiteki
         $change = array();
         foreach ($money_keys as $coin)
         {
-            // 保有数が0以下ならば調べない
-            if($hold_moneys[$coin] <= 0)
+            // 総額が
+            // 調べる対象のお金よりも大きく
+            // 保有数が0以下ならば調べないループする
+            while ($total >= $coin && $hold_moneys[$coin] > 0)
             {
-                continue;
-            }
-            // 総額が調べる対象のお金よりも大きいならループする
-            for (; $total >= $coin; $total -= $coin)
-            {
+				// おつりのリストに加える
                 array_push($change, $coin);
+				// 保有金額から減らす
                 $hold_moneys[$coin]--;
+				// おつり合計額から減らす
+				$total -= $coin;
             }
         }
 
