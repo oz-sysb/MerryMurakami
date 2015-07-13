@@ -37,9 +37,12 @@ class iretoku
         if(array_key_exists($tounyuu_kingaku, $this->okane))
         {
             $this->okane[$tounyuu_kingaku]++;
-            return TRUE;
         }
-        return FALSE;
+        if($this->limit < $this->okane[$tounyuu_kingaku])
+        {
+            return FALSE;
+        }
+        return TRUE;
     }
 
     public function iwaretabundasu($kingaku)
