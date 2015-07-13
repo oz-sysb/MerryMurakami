@@ -34,10 +34,10 @@ class SaitekiTest extends PHPUnit_Framework_TestCase
     {
         $hold_moneys = array(
             1000 => 5,
-            500 => 5,
-            100 => 5,
-            50 => 5,
-            10 => 5,
+             500 => 5,
+             100 => 5,
+              50 => 5,
+              10 => 5,
         );
 
         $provider_array = array();
@@ -48,6 +48,38 @@ class SaitekiTest extends PHPUnit_Framework_TestCase
 
         return $provider_array;
     }
+
+	/**
+	 * @dataProvider 異常なおつりProvider
+	 */
+	public function testおつりが足りません($total, $hold_moneys, $expected)
+	{
+		$result = $this->saiteki_obj->saiteki($total, $hold_moneys);
+		$this->assertEquals($expected, $result['total']);
+	}
+
+	/**
+	 * データプロバイダ
+	 * おつりの残りを確かめる
+	 *
+	 * @return array
+	 */
+	public function 異常なおつりProvider()
+	{
+		$hold_moneys = array(
+			1000 => 0,
+			 500 => 0,
+			 100 => 0,
+			  50 => 0,
+			  10 => 5,
+		);
+
+		return array(
+			array(-10, $hold_moneys, -10),
+			array(  0, $hold_moneys,   0),
+			array( 60, $hold_moneys,  10),
+		);
+	}
 
     /**
      * @dataProvider 正常なおつりの内訳Provider
