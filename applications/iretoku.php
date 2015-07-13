@@ -5,6 +5,8 @@
  * Date: 15/07/13
  * Time: 20:29
  */
+require_once(dirname(__FILE__) . '/../applications/saiteki.php');
+
 class iretoku
 {
     //枚数の限界？持っているお金の限界？いったん枚数として実装
@@ -38,5 +40,11 @@ class iretoku
             return TRUE;
         }
         return FALSE;
+    }
+
+    public function iwaretabundasu($kingaku)
+    {
+        $saiteki = new Saiteki();
+        return $saiteki->saiteki($kingaku, $this->okane);
     }
 }
