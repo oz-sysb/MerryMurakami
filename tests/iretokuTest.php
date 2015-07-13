@@ -10,38 +10,40 @@ class iretokuTest extends PHPUnit_Framework_TestCase
 	 */
 	public function setup()
 	{
-		$this->iretoku = new Iretoku();
+		$this->$iretoku_obj = new Iretoku();
 	}
 
 	/**
-	 *
+	 * 入れとく関数 正常系
 	 */
-	public function testIretokuOK()
+	public function testIretokuOK($okane_obj)
 	{
-		$this->assertEquals(TRUE, $this->iretoku_obj->iretoku($okane_obj));
+		$result = $this->iretoku_obj->iretoku($okane_obj);
+		$this->assertEquals(TRUE, $result);
 	}
 
 	/**
-	 *
+	 * 入れとく関数 異常系
 	 */
-	public function testIretokuNG()
+	public function testIretokuNG($okane_obj)
 	{
-		$this->assertEquals(FALSE, $this->iretoku_obj->iretoku($okane_obj));
+		$result = $this->iretoku_obj->iretoku($okane_obj);
+		$this->assertEquals(TRUE, $result);
 	}
 
 	/**
-	 *
+	 * 言われた分出す 正常系
 	 */
-	public function testIwaretabundasuOK()
+	public function testIwaretabundasuOK($kingaku, $ok_okane_obj)
 	{
 		$result_okane_obj = $this->iwaretabundasu($kingaku);
 		$this->assertEquals($ok_okane_obj, $result_okane_obj);
 	}
 
 	/**
-	 *
+	 * 言われた分出す 異常系
 	 */
-	public function testIwaretabundasuNG()
+	public function testIwaretabundasuNG($kingaku, $ng_okane_obj)
 	{
 		$result_okane_obj = $this->iwaretabundasu($kingaku);
 		$this->assertEquals($ng_okane_obj, $result_okane_obj);
