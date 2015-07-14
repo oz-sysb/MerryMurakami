@@ -1,14 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: y-murakami
- * Date: 2015/07/10
- * Time: 22:57
- */
-class sousa
+class Sousa
 {
-	public function hoge_func()
+	public function total_display()
 	{
-		return true;
+        $seigyo = new Dummy_seigyo();
+        return $seigyo->dummy_total_display();
 	}
 }
