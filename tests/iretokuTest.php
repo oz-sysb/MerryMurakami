@@ -35,5 +35,12 @@ class iretokuTest extends PHPUnit_Framework_TestCase
 			$this->iretoku_obj->put_in(new Tenyen());
 		}
 		$this->assertFalse($this->iretoku_obj->put_in(new Tenyen()));
+
+		// これは後処理に入れたい
+		for($i = 0; $i < 100; $i++)
+		{
+			$this->iretoku_obj->delete_amount(new Tenyen());
+		}
+
 	}
 }

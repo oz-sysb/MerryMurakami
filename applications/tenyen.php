@@ -1,6 +1,6 @@
 <?php
 require_once("../applications/money.php");
-class tenyen extends money
+class Tenyen extends money
 {
 	function __construct()
 	{

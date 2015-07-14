@@ -1,6 +1,6 @@
 <?php
 require_once("../applications/money.php");
-class fiveyen extends money
+class Fiveyen extends money
 {
 	function __construct()
 	{
