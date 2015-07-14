@@ -1,14 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: y-murakami
- * Date: 2015/07/10
- * Time: 22:57
- */
-class sousa
+require_once("../applications/money.php");
+
+class Hakidasu
 {
-	public function hoge_func()
+	public function refund(money $money)
 	{
+		echo $money->get_amount();
 		return true;
 	}
 }
