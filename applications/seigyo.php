@@ -1,19 +1,18 @@
 <?php
 require_once("../applications/config/autoload.php");
-class Dummy_seigyo
+class Seigyo
 {
-
-    public function dummy_total_display()
+    public function total_display()
     {
         return true;
     }
 
-    public function dummy_receive_money(money $money)
+    public function receive(money $money)
     {
         return true;
     }
 
-    public function dummy_refund_money()
+    public function refund_money()
     {
         return true;
     }

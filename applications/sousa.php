@@ -3,20 +3,20 @@ class Sousa
 {
 	public function total_display()
 	{
-        $seigyo = new Dummy_seigyo();
-        return $seigyo->dummy_total_display();
+        $seigyo = new Seigyo();
+        return $seigyo->total_display();
 	}
 
     public function receive(money $money)
     {
-        $seigyo = new Dummy_seigyo();
-        return $seigyo->dummy_receive_money($money);
+        $seigyo = new Seigyo();
+        return $seigyo->receive($money);
     }
 
     public function refund()
     {
-        $seigyo = new Dummy_seigyo();
-        return $seigyo->dummy_refund_money();
+        $seigyo = new Seigyo();
+        return $seigyo->refund_money();
     }
 
 

@@ -6,7 +6,7 @@
  * Time: 22:59
  */
 require_once("../applications/sousa.php");
-require_once("../applications/dummy_seigyo.php");
+require_once("../applications/seigyo.php");
 require_once("../applications/config/autoload.php");
 
 class sousaTest extends PHPUnit_Framework_TestCase
