@@ -1,14 +1,23 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: y-murakami
- * Date: 2015/07/10
- * Time: 22:57
- */
-class sousa
+class Sousa
 {
-	public function hoge_func()
+	public function total_display()
 	{
-		return true;
+        $seigyo = new Seigyo();
+        return $seigyo->total_display();
 	}
+
+    public function receive(money $money)
+    {
+        $seigyo = new Seigyo();
+        return $seigyo->receive($money);
+    }
+
+    public function refund()
+    {
+        $seigyo = new Seigyo();
+        return $seigyo->refund_money();
+    }
+
+
 }
