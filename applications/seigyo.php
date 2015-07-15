@@ -12,6 +12,27 @@ class Seigyo
 
     public function receive(money $money)
     {
+        $hanbetu = new hanbetu();
+        $hakidasu = new Hakidasu();
+        if(false === $hanbetu->is_usable($money))
+        {
+            $hakidasu->refund($money);
+            return false;
+        }
+        $iretoku = new Iretoku();
+        if(false === $iretoku->put_in($money))
+        {
+            $hakidasu->refund($money);
+            return false;
+        }
+        $keisan = new Keisan();
+        if(false === $keisan->add_amount($money))
+        {
+            $out_money = $iretoku->put_out($money);
+            $hakidasu->refund($out_money);
+            return false;
+        }
+
         return true;
     }
 
