@@ -12,12 +12,14 @@ class CoinMech
 
     /**
      * 渡されたお金が自販機で利用可能かを返す
-     * @param money $money
+     *
+     * @param int $money 金額
+     *
      * @return bool 利用可能ならtrue。利用不可ならfalse。
      */
-    public function is_usable(money $money)
+    public function is_usable($money)
     {
-        return in_array($money->get_amount(), $this->usable_money);
+        return in_array($money, $this->usable_money);
     }
 
 }
