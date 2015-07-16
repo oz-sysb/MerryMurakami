@@ -1,13 +1,13 @@
 <?php
-require_once("../applications/CoinMech.php");
+require_once("../applications/CoinMatch.php");
 
-class CoinMechTest extends PHPUnit_Framework_TestCase
+class CoinMatchTest extends PHPUnit_Framework_TestCase
 {
 	private $CoinMech;
 
 	public function setUp()
 	{
-		$this->CoinMech = new CoinMech();
+		$this->CoinMech = new CoinMatch();
 	}
 
 	/**
