@@ -10,14 +10,27 @@ class CoinMechTest extends PHPUnit_Framework_TestCase
         $this->CoinMech = new CoinMech();
     }
 
-    public function test_usable()
+    /**
+     * @test
+     *
+     * @dataProvider moneyProvider
+     */
+    public function 使える硬貨かどうか($amount, $expected)
     {
-        $this->assertTrue($this->CoinMech->is_usable(10));
+        $this->assertEquals($expected, $this->CoinMech->is_usable($amount));
     }
 
-    public function test_not_usable()
+    public function moneyProvider()
     {
-        $this->assertFalse($this->CoinMech->is_usable(1));
-        $this->assertFalse($this->CoinMech->is_usable(5));
+        return [[1, false],
+                [5, false],
+                [10, true],
+                [50, true],
+                [100, true],
+                [500, true],
+                [1000, true],
+                [2000, false],
+                [5000, false],
+                [10000, false]];
     }
 }

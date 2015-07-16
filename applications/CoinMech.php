@@ -3,11 +3,14 @@ require_once(dirname(__FILE__) . '/config/autoload.php');
 
 class CoinMech
 {
+    /**
+     * @var array 使える硬貨のリスト
+     */
     public $usable_money;
 
-    function __construct()
+    public function __construct()
     {
-        $this->usable_money = array(10, 50, 100, 500, 1000);
+        $this->usable_money = [10, 50, 100, 500, 1000];
     }
 
     /**
