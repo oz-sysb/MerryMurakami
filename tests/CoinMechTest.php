@@ -36,7 +36,7 @@ class CoinMechTest extends PHPUnit_Framework_TestCase
 			['hoge', false],
 			[	  0, false],
 			[	 -1, false],
-			[  true, false], //ここがおかしい
+			[  true, false],
 			[ false, false],
 			[  null, false],
 		];

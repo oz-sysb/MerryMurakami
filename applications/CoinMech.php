@@ -22,6 +22,10 @@ class CoinMech
      */
     public function is_usable($money)
     {
+		if(is_int($money) === false)
+		{
+			return false;
+		}
         return in_array($money, $this->usable_money);
     }
 
