@@ -21,9 +21,15 @@ class ItemManagerTest extends PHPUnit_Framework_TestCase
 	 */
 	public function コーラ120円が5本あるか()
 	{
+		$cola = [
+			[
+				"name"  => "コーラ",
+				"price" => 120,
+				"stock" => 5
+			]
+		];
+
 		$expected = $this->itemManager->get_items();
-		$this->assertArraySubset([["name"  => "コーラ",
-								   "price" => 120,
-								   "stock" => 5]], $expected);
+		$this->assertArraySubset($cola, $expected);
 	}
 }
