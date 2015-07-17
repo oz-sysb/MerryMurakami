@@ -11,12 +11,17 @@ class ItemManager
 	/**
 	 * @var array 商品情報
 	 */
-	private $items = [["name"  => "コーラ",
-					   "price" => 120,
-					   "stock" => 5]];
+	private $items;
 
 	public function __construct()
 	{
+		$this->items = [
+			[
+				"name"  => "コーラ",
+				"price" => 120,
+				"stock" => 5
+			]
+		];
 	}
 
 	/**
