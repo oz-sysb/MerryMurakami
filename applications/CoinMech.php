@@ -1,7 +1,7 @@
 <?php
 require_once(dirname(__FILE__) . '/config/autoload.php');
 
-class CoinMatch
+class CoinMech
 {
     /**
      * @var array 使える硬貨のリスト
