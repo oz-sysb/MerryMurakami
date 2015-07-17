@@ -1,5 +1,5 @@
 <?php
-require_once(dirname(__FILE__) . "/../applications/CoinMech.php");
+require_once(dirname(__FILE__) . '/../applications/config/autoload.php');
 
 class CoinMechTest extends PHPUnit_Framework_TestCase
 {
