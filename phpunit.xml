@@ -11,7 +11,7 @@ bootstrap="./vendor/autoload.php"
 >
 
 <testsuites>
-<testsuite name="Kinakomochi">
+<testsuite name="MerryMurakami">
 <directory>./tests</directory>
 </testsuite>
 </testsuites>
