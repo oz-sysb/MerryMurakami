@@ -23,6 +23,11 @@ class Preserve
 	 */
 	function add_amount($money)
 	{
+		$CoinMatch_obj = new CoinMatch();
+		if($CoinMatch_obj->is_usable($money) === false)
+		{
+			return $this->amount;
+		}
 		$this->amount += $money;
 		return $this->amount;
 	}
