@@ -23,8 +23,8 @@ class Preserve
 	 */
 	function add_amount($money)
 	{
-		$CoinMatch_obj = new CoinMatch();
-		if($CoinMatch_obj->is_usable($money) === false)
+		$CoinMech_obj = new CoinMech();
+		if($CoinMech_obj->is_usable($money) === false)
 		{
 			return $this->amount;
 		}
