@@ -34,7 +34,6 @@ class vendingMachìne
 	 */
 	function add_amount($money)
 	{
-		// preserveクラスの仕様変更の必要あり？
 		return $this->preserve_obj->add_amount($money);
 	}
 
