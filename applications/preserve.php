@@ -19,14 +19,14 @@ class Preserve
 	 *
 	 * @param int $money 投入された金額
 	 *
-	 * @return int これまでに投入された総金額
+	 * @return int 加えることができなかったお金
 	 */
 	function add_amount($money)
 	{
 		$CoinMech_obj = new CoinMech();
 		if($CoinMech_obj->is_usable($money) === false)
 		{
-			return $this->amount;
+			return $money;
 		}
 		$this->amount += $money;
 		return $this->amount;
