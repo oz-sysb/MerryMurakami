@@ -89,44 +89,6 @@ class PreserveTest extends PHPUnit_Framework_TestCase
 
 	/**
 	 * データプロバイダ
-	 * 総額に加える
-	 *
-	 * @return array
-	 */
-	public function 総額に加える_正常系Provider()
-	{
-		return [
-			[  10,   10],
-			[  50,   50],
-			[ 100,  100],
-			[ 500,  500],
-			[1000, 1000],
-		];
-	}
-
-	/**
-	 * データプロバイダ
-	 * 総額に加える
-	 *
-	 * @return array
-	 */
-	public function 総額に加える_異常系Provider()
-	{
-		return [
-			[     1,     1],
-			[     5,     5],
-			[  2000,  2000],
-			[  5000,  5000],
-			[ 10000, 10000],
-			[    -1,    -1],
-			[  null,  null],
-			[  true,  true],
-			[ false, false],
-		];
-	}
-
-	/**
-	 * データプロバイダ
 	 * 総額を取り出す
 	 *
 	 * @return array
