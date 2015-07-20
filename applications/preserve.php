@@ -1,8 +1,11 @@
 <?php
+require_once(dirname(__FILE__) . '/config/autoload.php');
+
 class Preserve
 {
 	// 総額
 	private $amount;
+	private $CoinMech_obj;
 
 	/**
 	 * コンストラクタ
@@ -12,6 +15,7 @@ class Preserve
 	public function __construct()
 	{
 		$this->amount = 0;
+		$this->CoinMech_obj = new CoinMech();
 	}
 
 	/**
@@ -23,8 +27,8 @@ class Preserve
 	 */
 	function add_amount($money)
 	{
-		$CoinMech_obj = new CoinMech();
-		if($CoinMech_obj->is_usable($money) === false)
+		$is_usable = $this->CoinMech_obj->is_usable($money);
+		if($is_usable === false)
 		{
 			return $money;
 		}
