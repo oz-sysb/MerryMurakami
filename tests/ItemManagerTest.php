@@ -5,7 +5,7 @@
  * Date: 15/07/17
  * Time: 20:36
  */
-require_once("../applications/ItemManager.php");
+require_once(dirname(__FILE__) . '/../applications/config/autoload.php');
 
 class ItemManagerTest extends PHPUnit_Framework_TestCase
 {
