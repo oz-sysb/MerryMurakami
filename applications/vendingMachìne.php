@@ -4,6 +4,7 @@ require_once(dirname(__FILE__) . '/config/autoload.php');
 class vendingMachìne
 {
 	private $preserve_obj;
+	private $itemManager_obj;
 
 	/**
 	 * コンストラクタ
@@ -12,7 +13,8 @@ class vendingMachìne
 	 */
 	public function __construct()
 	{
-		$this->preserve_obj = new Preserve();
+		$this->preserve_obj    = new Preserve();
+		$this->itemManager_obj = new ItemManager();
 	}
 
 	/**
@@ -45,5 +47,15 @@ class vendingMachìne
 	function pay_back()
 	{
 		return $this->preserve_obj->take_out_amount();
+	}
+
+	/**
+	 * ジュース情報取得
+	 *
+	 * @return array ジュースの情報を返す
+	 */
+	function get_juice_info()
+	{
+		return $this->itemManager_obj->get_items();
 	}
 }
