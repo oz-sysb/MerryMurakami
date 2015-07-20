@@ -113,15 +113,15 @@ class PreserveTest extends PHPUnit_Framework_TestCase
 	public function 総額に加える_異常系Provider()
 	{
 		return [
-			[     1, 0],
-			[     5, 0],
-			[  2000, 0],
-			[  5000, 0],
-			[ 10000, 0],
-			[    -1, 0],
-			[  null, 0],
-			[  true, 0],
-			[ false, 0],
+			[     1,     1],
+			[     5,     5],
+			[  2000,  2000],
+			[  5000,  5000],
+			[ 10000, 10000],
+			[    -1,    -1],
+			[  null,  null],
+			[  true,  true],
+			[ false, false],
 		];
 	}
 
