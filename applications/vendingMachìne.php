@@ -3,6 +3,7 @@ require_once(dirname(__FILE__) . '/config/autoload.php');
 
 class VendingMachìne
 {
+	private $CoinMach_obj;
 	private $preserve_obj;
 	private $itemManager_obj;
 
@@ -13,6 +14,7 @@ class VendingMachìne
 	 */
 	public function __construct()
 	{
+		$this->CoinMach_obj    = new CoinMech();
 		$this->preserve_obj    = new Preserve();
 		$this->itemManager_obj = new ItemManager();
 	}
@@ -24,6 +26,7 @@ class VendingMachìne
 	 */
 	function get_amount()
 	{
+
 		return $this->preserve_obj->get_amount();
 	}
 
@@ -36,7 +39,11 @@ class VendingMachìne
 	 */
 	function add_amount($money)
 	{
-		return $this->preserve_obj->add_amount($money);
+		if($this->CoinMach_obj->is_usable($money))
+		{
+			return $this->preserve_obj->add_amount($money);
+		}
+		return $money;
 	}
 
 	/**
