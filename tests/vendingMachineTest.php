@@ -1,7 +1,7 @@
 <?php
 require_once(dirname(__FILE__) . '/../applications/config/autoload.php');
 
-class vendingMachineTest extends PHPUnit_Framework_TestCase
+class VendingMachineTest extends PHPUnit_Framework_TestCase
 {
 	private $vendingMachine_obj;
 

@@ -1,7 +1,7 @@
 <?php
 require_once(dirname(__FILE__) . '/config/autoload.php');
 
-class vendingMachìne
+class VendingMachìne
 {
 	private $preserve_obj;
 	private $itemManager_obj;
