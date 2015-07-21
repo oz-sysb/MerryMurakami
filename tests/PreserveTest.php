@@ -3,6 +3,9 @@ require_once(dirname(__FILE__) . '/../applications/config/autoload.php');
 
 class PreserveTest extends PHPUnit_Framework_TestCase
 {
+	/**
+	 * @var Preserve
+	 */
 	private $preserve_obj;
 
 	/**
