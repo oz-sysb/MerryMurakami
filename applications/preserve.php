@@ -20,20 +20,16 @@ class Preserve
 
 	/**
 	 * 総額に加える
+	 * 引数はint型
 	 *
 	 * @param int $money 投入された金額
 	 *
-	 * @return int 加えることができなかったお金
+	 * @return int 投入された金額が総額に加えられたか
 	 */
 	function add_amount($money)
 	{
-		$is_usable = $this->CoinMech_obj->is_usable($money);
-		if($is_usable === false)
-		{
-			return $money;
-		}
 		$this->amount += $money;
-		return $this->amount;
+		return 0;
 	}
 
 	/**
