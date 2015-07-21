@@ -8,7 +8,7 @@ class Preserve
 	/**
 	 * @var CoinMech
 	 */
-	private $CoinMech_obj;
+	private $coinMech;
 
 	/**
 	 * コンストラクタ
@@ -18,7 +18,7 @@ class Preserve
 	public function __construct()
 	{
 		$this->amount = 0;
-		$this->CoinMech_obj = new CoinMech();
+		$this->coinMech = new CoinMech();
 	}
 
 	/**
@@ -30,7 +30,7 @@ class Preserve
 	 */
 	function add_amount($money)
 	{
-		$is_usable = $this->CoinMech_obj->is_usable($money);
+		$is_usable = $this->coinMech->is_usable($money);
 		if($is_usable === false)
 		{
 			return $money;
