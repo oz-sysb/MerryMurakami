@@ -5,6 +5,9 @@ class Preserve
 {
 	// 総額
 	private $amount;
+	/**
+	 * @var CoinMech
+	 */
 	private $CoinMech_obj;
 
 	/**

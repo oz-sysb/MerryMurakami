@@ -3,7 +3,14 @@ require_once(dirname(__FILE__) . '/config/autoload.php');
 
 class VendingMachìne
 {
+	/**
+	 * @var Preserve
+	 */
 	private $preserve_obj;
+	
+	/**
+	 * @var ItemManager
+	 */
 	private $itemManager_obj;
 
 	/**
