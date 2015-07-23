@@ -15,7 +15,7 @@ class VendingMachineTest extends PHPUnit_Framework_TestCase
 	 */
 	public function setUp()
 	{
-		$this->vendingMachine = new vendingMachìne();
+		$this->vendingMachine = new vendingMachine();
 	}
 
 	/**
