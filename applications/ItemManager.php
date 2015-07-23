@@ -15,13 +15,15 @@ class ItemManager
 
 	public function __construct()
 	{
-		$this->items = [
-			[
-				"name"  => "コーラ",
-				"price" => 120,
-				"stock" => 5
-			]
-		];
+		$this->items = [["name"  => "コーラ",
+						 "price" => 120,
+						 "stock" => 5],
+						["name"  => "レッドブル",
+						 "price" => 200,
+						 "stock" => 5],
+						["name"  => "水",
+						 "price" => 100,
+						 "stock" => 5]];
 	}
 
 	/**
