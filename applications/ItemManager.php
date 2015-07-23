@@ -1,5 +1,5 @@
 <?php
-
+namespace MerryMurakami\VendingMachine;
 /**
  * Created by PhpStorm.
  * User: nokablank

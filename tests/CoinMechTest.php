@@ -1,5 +1,6 @@
 <?php
 require_once(dirname(__FILE__) . '/../applications/config/autoload.php');
+use MerryMurakami\VendingMachine\CoinMech;
 
 class coinMechTest extends PHPUnit_Framework_TestCase
 {
