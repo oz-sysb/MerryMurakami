@@ -18,6 +18,13 @@ class Seller
 	 */
 	private $Proceeds;
 
+	public function __construct()
+	{
+		$this->Preserve = new Preserve();
+		$this->ItemManager = new ItemManager();
+//		$this->Proceeds = new Proceeds();
+	}
+
 	/**
 	 * 購入できるジュースのリストを返す
 	 *
@@ -27,7 +34,18 @@ class Seller
 	 */
 	public function find_items($amount)
 	{
-		return array();
+		$items = $this->ItemManager->get_items();
+
+		$find_items = array();
+		foreach($items as $item)
+		{
+			if($this->is_buyable($item["name"], $amount))
+			{
+				$find_items[] = $item["name"];
+			}
+		}
+
+		return $find_items;
 	}
 
 	/**
@@ -40,6 +58,28 @@ class Seller
 	 */
 	public function is_buyable($name, $amount)
 	{
+		$items = $this->ItemManager->get_items();
+		foreach($items as $item)
+		{
+			if($item["name"] == $name)
+			{
+				$buy_item = $item;
+				break;
+			}
+		}
+
+		// 在庫確認
+		if($buy_item["stock"] <= 0)
+		{
+			return false;
+		}
+
+		// その金額で購入できるか
+		if($buy_item["price"] > $amount)
+		{
+			return false;
+		}
+
 		return true;
 	}
 
@@ -53,6 +93,17 @@ class Seller
 	 */
 	public function buy($name, $amount)
 	{
+		if( ! $this->is_buyable($name, $amount))
+		{
+			return false;
+		}
+
+		// ジュースを減らす
+		$this->ItemManager->minus_item($name);
+
+		// 売上を加算する
+		$this->Proceeds->add_proceeds($amount);
+
 		return true;
 	}
 }
