@@ -1,7 +1,7 @@
 <?php
 require_once(dirname(__FILE__) . '/config/autoload.php');
 
-class VendingMachìne
+class VendingMachine
 {
 	/**
 	 * @var Preserve
