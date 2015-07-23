@@ -1,13 +1,16 @@
 <?php
 require_once(dirname(__FILE__) . '/../applications/config/autoload.php');
 
-class CoinMechTest extends PHPUnit_Framework_TestCase
+class coinMechTest extends PHPUnit_Framework_TestCase
 {
-	private $CoinMech;
+	/**
+	 * @var CoinMech
+	 */
+	private $coinMech;
 
 	public function setUp()
 	{
-		$this->CoinMech = new CoinMech();
+		$this->coinMech = new CoinMech();
 	}
 
 	/**
@@ -20,7 +23,7 @@ class CoinMechTest extends PHPUnit_Framework_TestCase
 	 */
 	public function 使える硬貨かどうか($amount, $expected)
 	{
-		$this->assertEquals($expected, $this->CoinMech->is_usable($amount));
+		$this->assertEquals($expected, $this->coinMech->is_usable($amount));
 	}
 
 	/**
@@ -33,7 +36,7 @@ class CoinMechTest extends PHPUnit_Framework_TestCase
 	 */
 	public function 数値以外はfalseになるか($amount, $expected)
 	{
-		$this->assertEquals($expected, $this->CoinMech->is_usable($amount));
+		$this->assertEquals($expected, $this->coinMech->is_usable($amount));
 	}
 
 	public function moneyProvider()

@@ -9,6 +9,9 @@ require_once(dirname(__FILE__) . '/../applications/config/autoload.php');
 
 class ItemManagerTest extends PHPUnit_Framework_TestCase
 {
+	/**
+	 * @var ItemManager
+	 */
 	private $itemManager;
 
 	public function setUp()

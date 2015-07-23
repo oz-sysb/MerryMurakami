@@ -3,7 +3,10 @@ require_once(dirname(__FILE__) . '/../applications/config/autoload.php');
 
 class PreserveTest extends PHPUnit_Framework_TestCase
 {
-	private $preserve_obj;
+	/**
+	 * @var Preserve
+	 */
+	private $preserve;
 
 	/**
 	 * 毎テスト開始時の初期化関数
@@ -12,7 +15,7 @@ class PreserveTest extends PHPUnit_Framework_TestCase
 	 */
 	public function setUp()
 	{
-		$this->preserve_obj = new Preserve();
+		$this->preserve = new Preserve();
 	}
 
 	/**
@@ -27,7 +30,7 @@ class PreserveTest extends PHPUnit_Framework_TestCase
 	 */
 	public function 総額に加える_正常系($invest, $expected)
 	{
-		$result = $this->preserve_obj->add_amount($invest);
+		$result = $this->preserve->add_amount($invest);
 		$this->assertEquals($expected, $result);
 	}
 
@@ -43,7 +46,7 @@ class PreserveTest extends PHPUnit_Framework_TestCase
 	 */
 	public function 総額に加える_異常系($invest, $expected)
 	{
-		$result = $this->preserve_obj->add_amount($invest);
+		$result = $this->preserve->add_amount($invest);
 		$this->assertEquals($expected, $result);
 	}
 
@@ -61,9 +64,9 @@ class PreserveTest extends PHPUnit_Framework_TestCase
 	{
 		foreach($invests as $invest)
 		{
-			$this->preserve_obj->add_amount($invest);
+			$this->preserve->add_amount($invest);
 		}
-		$result = $this->preserve_obj->take_out_amount();
+		$result = $this->preserve->take_out_amount();
 		$this->assertEquals($expected, $result);
 	}
 
@@ -81,8 +84,8 @@ class PreserveTest extends PHPUnit_Framework_TestCase
 	{
 		for($i = 0; $i < count($invests); $i++)
 		{
-			$this->preserve_obj->add_amount($invests[$i]);
-			$result = $this->preserve_obj->get_amount();
+			$this->preserve->add_amount($invests[$i]);
+			$result = $this->preserve->get_amount();
 			$this->assertEquals($expected[$i], $result);
 		}
 	}

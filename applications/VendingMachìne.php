@@ -3,8 +3,15 @@ require_once(dirname(__FILE__) . '/config/autoload.php');
 
 class VendingMachìne
 {
-	private $preserve_obj;
-	private $itemManager_obj;
+	/**
+	 * @var Preserve
+	 */
+	private $preserve;
+	
+	/**
+	 * @var ItemManager
+	 */
+	private $itemManager;
 
 	/**
 	 * コンストラクタ
@@ -13,8 +20,8 @@ class VendingMachìne
 	 */
 	public function __construct()
 	{
-		$this->preserve_obj    = new Preserve();
-		$this->itemManager_obj = new ItemManager();
+		$this->preserve    = new Preserve();
+		$this->itemManager = new ItemManager();
 	}
 
 	/**
@@ -24,7 +31,7 @@ class VendingMachìne
 	 */
 	function get_amount()
 	{
-		return $this->preserve_obj->get_amount();
+		return $this->preserve->get_amount();
 	}
 
 	/**
@@ -36,7 +43,7 @@ class VendingMachìne
 	 */
 	function add_amount($money)
 	{
-		return $this->preserve_obj->add_amount($money);
+		return $this->preserve->add_amount($money);
 	}
 
 	/**
@@ -46,7 +53,7 @@ class VendingMachìne
 	 */
 	function pay_back()
 	{
-		return $this->preserve_obj->take_out_amount();
+		return $this->preserve->take_out_amount();
 	}
 
 	/**
@@ -56,6 +63,6 @@ class VendingMachìne
 	 */
 	function get_juice_info()
 	{
-		return $this->itemManager_obj->get_items();
+		return $this->itemManager->get_items();
 	}
 }

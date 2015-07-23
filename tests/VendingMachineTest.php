@@ -3,7 +3,10 @@ require_once(dirname(__FILE__) . '/../applications/config/autoload.php');
 
 class VendingMachineTest extends PHPUnit_Framework_TestCase
 {
-	private $vendingMachine_obj;
+	/**
+	 * @var vendingMachìne
+	 */
+	private $vendingMachine;
 
 	/**
 	 * 毎テスト開始時の初期化関数
@@ -12,7 +15,7 @@ class VendingMachineTest extends PHPUnit_Framework_TestCase
 	 */
 	public function setUp()
 	{
-		$this->vendingMachine_obj = new vendingMachìne();
+		$this->vendingMachine = new vendingMachìne();
 	}
 
 	/**
@@ -29,9 +32,9 @@ class VendingMachineTest extends PHPUnit_Framework_TestCase
 	{
 		foreach($invests as $money)
 		{
-			$this->vendingMachine_obj->add_amount($money);
+			$this->vendingMachine->add_amount($money);
 		}
-		$result = $this->vendingMachine_obj->get_amount();
+		$result = $this->vendingMachine->get_amount();
 		$this->assertEquals($expected, $result);
 	}
 
@@ -49,13 +52,13 @@ class VendingMachineTest extends PHPUnit_Framework_TestCase
 	{
 		foreach($invests as $money)
 		{
-			$this->vendingMachine_obj->add_amount($money);
+			$this->vendingMachine->add_amount($money);
 		}
 		// 投入された分だけの数を払い出すか
-		$result = $this->vendingMachine_obj->pay_back();
+		$result = $this->vendingMachine->pay_back();
 		$this->assertEquals($expected, $result);
 		// 払い出した後は0になっているか
-		$zero = $this->vendingMachine_obj->get_amount();
+		$zero = $this->vendingMachine->get_amount();
 		$this->assertEquals(0, $zero);
 	}
 
