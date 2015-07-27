@@ -22,7 +22,7 @@ class CoinMech
      *
      * @return bool 利用可能ならtrue。利用不可ならfalse。
      */
-    public function is_usable($money)
+    public function isUsable($money)
     {
         return in_array($money, $this->usable_money, true);
     }

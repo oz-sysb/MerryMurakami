@@ -24,7 +24,7 @@ class coinMechTest extends PHPUnit_Framework_TestCase
      */
     public function 使える硬貨かどうか($amount, $expected)
     {
-        $this->assertEquals($expected, $this->coinMech->is_usable($amount));
+        $this->assertEquals($expected, $this->coinMech->isUsable($amount));
     }
 
     /**
@@ -37,7 +37,7 @@ class coinMechTest extends PHPUnit_Framework_TestCase
      */
     public function 数値以外はfalseになるか($amount, $expected)
     {
-        $this->assertEquals($expected, $this->coinMech->is_usable($amount));
+        $this->assertEquals($expected, $this->coinMech->isUsable($amount));
     }
 
     public function moneyProvider()
