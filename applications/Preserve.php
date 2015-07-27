@@ -32,7 +32,7 @@ class Preserve
      */
     function add_amount($money)
     {
-        $is_usable = $this->coinMech->is_usable($money);
+        $is_usable = $this->coinMech->isUsable($money);
         if ($is_usable === false) {
             return $money;
         }
