@@ -34,7 +34,7 @@ class ItemManager
      *
      * @return array 商品情報
      */
-    public function get_items()
+    public function getItems()
     {
         return $this->items;
     }
