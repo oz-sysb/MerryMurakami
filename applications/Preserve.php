@@ -30,7 +30,7 @@ class Preserve
      *
      * @return int 加えることができなかったお金
      */
-    function add_amount($money)
+    public function addAmount($money)
     {
         $is_usable = $this->coinMech->isUsable($money);
         if ($is_usable === false) {
@@ -47,7 +47,7 @@ class Preserve
      *
      * @return int 総額
      */
-    function take_out_amount()
+    public function takeoutAmount()
     {
         $amount_all = $this->amount;
         $this->amount = 0;
@@ -60,7 +60,7 @@ class Preserve
      *
      * @return int 総額
      */
-    function get_amount()
+    public function getAmount()
     {
         return $this->amount;
     }
