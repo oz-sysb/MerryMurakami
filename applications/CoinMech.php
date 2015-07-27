@@ -1,5 +1,6 @@
 <?php
 namespace MerryMurakami\VendingMachine;
+
 require_once(dirname(__FILE__) . '/config/autoload.php');
 
 class CoinMech
@@ -25,5 +26,4 @@ class CoinMech
     {
         return in_array($money, $this->usable_money, true);
     }
-
 }

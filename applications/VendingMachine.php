@@ -1,5 +1,6 @@
 <?php
-require_once(dirname(__FILE__) . '/config/autoload.php');
+namespace MerryMurakami\VendingMachine;
+require_once(dirname(__FILE__) . '/../applications/config/autoload.php');
 
 class VendingMachine
 {
