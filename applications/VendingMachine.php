@@ -17,8 +17,6 @@ class VendingMachine
 
     /**
      * コンストラクタ
-     *
-     * @return void
      */
     public function __construct()
     {

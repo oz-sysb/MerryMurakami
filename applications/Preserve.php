@@ -5,7 +5,9 @@ require_once(dirname(__FILE__) . '/config/autoload.php');
 
 class Preserve
 {
-    // 総額
+    /**
+     * @var int 総額
+     */
     private $amount;
     /**
      * @var CoinMech
@@ -14,8 +16,6 @@ class Preserve
 
     /**
      * コンストラクタ
-     *
-     * @return void
      */
     public function __construct()
     {
