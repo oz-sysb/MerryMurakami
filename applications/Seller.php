@@ -34,7 +34,7 @@ class Seller
      */
     public function find_items($amount)
     {
-        $items = $this->ItemManager->get_items();
+        $items = $this->ItemManager->getItems();
 
         $find_items = array();
         foreach ($items as $item) {
@@ -56,7 +56,7 @@ class Seller
      */
     public function is_buyable($name, $amount)
     {
-        $items = $this->ItemManager->get_items();
+        $items = $this->ItemManager->getItems();
         foreach ($items as $item) {
             if ($item["name"] == $name) {
                 $buy_item = $item;
