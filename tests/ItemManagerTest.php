@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: nokablank
@@ -6,6 +7,7 @@
  * Time: 20:36
  */
 require_once(dirname(__FILE__) . '/../applications/config/autoload.php');
+use MerryMurakami\VendingMachine\ItemManager;
 
 class ItemManagerTest extends PHPUnit_Framework_TestCase
 {
