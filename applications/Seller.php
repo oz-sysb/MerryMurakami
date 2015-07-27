@@ -20,8 +20,8 @@ class Seller
 
 	public function __construct()
 	{
-		$this->Preserve = new Preserve();
-		$this->ItemManager = new ItemManager();
+		$this->Preserve = new MerryMurakami\VendingMachine\Preserve();
+		$this->ItemManager = new MerryMurakami\VendingMachine\ItemManager();
 //		$this->Proceeds = new Proceeds();
 	}
 
