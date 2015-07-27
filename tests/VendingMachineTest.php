@@ -1,8 +1,11 @@
 <?php
-require_once(dirname(__FILE__) . '/../applications/config/autoload.php');
+namespace MerryMurakami\VendingMachine\Test;
+
 use MerryMurakami\VendingMachine\VendingMachine;
 
-class VendingMachineTest extends PHPUnit_Framework_TestCase
+require_once(dirname(__FILE__) . '/../applications/config/autoload.php');
+
+class VendingMachineTest extends \PHPUnit_Framework_TestCase
 {
     private $vendingMachine_obj;
 
@@ -28,7 +31,7 @@ class VendingMachineTest extends PHPUnit_Framework_TestCase
      */
     public function お金受け取る_正常系($invests, $expected)
     {
-        $result = $this->vendingMachine_obj->add_amount($invests);
+        $result = $this->vendingMachine_obj->addAmount($invests);
         $this->assertEquals($expected, $result);
     }
 
@@ -44,7 +47,7 @@ class VendingMachineTest extends PHPUnit_Framework_TestCase
      */
     public function お金受け取る_異常系($invests, $expected)
     {
-        $result = $this->vendingMachine_obj->add_amount($invests);
+        $result = $this->vendingMachine_obj->addAmount($invests);
         $this->assertEquals($expected, $result);
     }
 
@@ -61,9 +64,9 @@ class VendingMachineTest extends PHPUnit_Framework_TestCase
     public function 総額表示_正常系($invests, $expected)
     {
         foreach ($invests as $money) {
-            $this->vendingMachine_obj->add_amount($money);
+            $this->vendingMachine_obj->addAmount($money);
         }
-        $result = $this->vendingMachine_obj->get_amount();
+        $result = $this->vendingMachine_obj->getAmount();
         $this->assertEquals($expected, $result);
     }
 
@@ -80,13 +83,13 @@ class VendingMachineTest extends PHPUnit_Framework_TestCase
     public function 払い出す_正常系($invests, $expected)
     {
         foreach ($invests as $money) {
-            $this->vendingMachine_obj->add_amount($money);
+            $this->vendingMachine_obj->addAmount($money);
         }
         // 投入された分だけの数を払い出すか
-        $result = $this->vendingMachine_obj->pay_back();
+        $result = $this->vendingMachine_obj->payBack();
         $this->assertEquals($expected, $result);
         // 払い出した後は0になっているか
-        $zero = $this->vendingMachine_obj->get_amount();
+        $zero = $this->vendingMachine_obj->getAmount();
         $this->assertEquals(0, $zero);
     }
 
@@ -146,5 +149,4 @@ class VendingMachineTest extends PHPUnit_Framework_TestCase
             ],
         ];
     }
-
 }
