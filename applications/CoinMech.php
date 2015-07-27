@@ -26,5 +26,4 @@ class CoinMech
     {
         return in_array($money, $this->usable_money, true);
     }
-
 }
