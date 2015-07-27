@@ -59,6 +59,7 @@ class Seller
     public function isBuyable($name, $amount)
     {
         $items = $this->ItemManager->getItems();
+        $buy_item = array();
         foreach ($items as $item) {
             if ($item["name"] == $name) {
                 $buy_item = $item;
