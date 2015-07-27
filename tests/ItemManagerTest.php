@@ -11,32 +11,40 @@ use MerryMurakami\VendingMachine\ItemManager;
 
 class ItemManagerTest extends PHPUnit_Framework_TestCase
 {
-	/**
-	 * @var ItemManager
-	 */
-	private $itemManager;
+    /**
+     * @var ItemManager
+     */
+    private $itemManager;
 
-	public function setUp()
-	{
-		$this->itemManager = new ItemManager();
-	}
+    public function setUp()
+    {
+        $this->itemManager = new ItemManager();
+    }
 
-	/**
-	 * @test
-	 */
-	public function コーラとレッドブルと水があるか()
-	{
-		$item = [["name"  => "コーラ",
-				  "price" => 120,
-				  "stock" => 5],
-				 ["name"  => "レッドブル",
-				  "price" => 200,
-				  "stock" => 5],
-				 ["name"  => "水",
-				  "price" => 100,
-				  "stock" => 5]];
+    /**
+     * @test
+     */
+    public function コーラとレッドブルと水があるか()
+    {
+        $item = [
+            [
+                "name"  => "コーラ",
+                "price" => 120,
+                "stock" => 5
+            ],
+            [
+                "name"  => "レッドブル",
+                "price" => 200,
+                "stock" => 5
+            ],
+            [
+                "name"  => "水",
+                "price" => 100,
+                "stock" => 5
+            ]
+        ];
 
-		$expected = $this->itemManager->get_items();
-		$this->assertArraySubset($item, $expected);
-	}
+        $expected = $this->itemManager->get_items();
+        $this->assertArraySubset($item, $expected);
+    }
 }
