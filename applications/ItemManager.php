@@ -1,12 +1,6 @@
 <?php
 namespace MerryMurakami\VendingMachine;
 
-/**
- * Created by PhpStorm.
- * User: nokablank
- * Date: 15/07/17
- * Time: 20:36
- */
 class ItemManager
 {
     /**

@@ -49,10 +49,10 @@ class Preserve
      */
     function take_out_amount()
     {
-        $amout_all = $this->amount;
+        $amount_all = $this->amount;
         $this->amount = 0;
 
-        return $amout_all;
+        return $amount_all;
     }
 
     /**
