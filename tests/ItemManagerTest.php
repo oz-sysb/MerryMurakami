@@ -1,15 +1,11 @@
 <?php
+namespace MerryMurakami\VendingMachine\Test;
 
-/**
- * Created by PhpStorm.
- * User: nokablank
- * Date: 15/07/17
- * Time: 20:36
- */
-require_once(dirname(__FILE__) . '/../applications/config/autoload.php');
 use MerryMurakami\VendingMachine\ItemManager;
 
-class ItemManagerTest extends PHPUnit_Framework_TestCase
+require_once(dirname(__FILE__) . '/../applications/config/autoload.php');
+
+class ItemManagerTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var ItemManager
@@ -44,7 +40,7 @@ class ItemManagerTest extends PHPUnit_Framework_TestCase
             ]
         ];
 
-        $expected = $this->itemManager->get_items();
+        $expected = $this->itemManager->getItems();
         $this->assertArraySubset($item, $expected);
     }
 }
