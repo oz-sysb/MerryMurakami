@@ -1,4 +1,6 @@
 <?php
+namespace MerryMurakami\VendingMachine;
+
 require_once(dirname(__FILE__) . '/config/autoload.php');
 
 class CoinMech
