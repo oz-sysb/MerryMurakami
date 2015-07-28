@@ -46,4 +46,9 @@ class SellerTest extends \PHPUnit_Framework_TestCase
 
         $this->assertArraySubset($item_list, $expected);
     }
+
+    public function tearDown()
+    {
+        $this->Seller->initialize();
+    }
 }
