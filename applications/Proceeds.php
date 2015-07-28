@@ -17,6 +17,11 @@ class Proceeds
         $this->amount = 0;
     }
 
+    /**
+     * Proceedsインスタンスを返す。
+     *
+     * @return Proceeds
+     */
     public static function getInstance()
     {
         if (!isset(self::$instance)) {
@@ -24,6 +29,15 @@ class Proceeds
         }
 
         return self::$instance;
+    }
+
+    /**
+     * 売り上げの状態を初期化する。
+     * 売り上げ金額を0円にする。
+     */
+    public function initialize()
+    {
+        $this->amount = 0;
     }
 
     /**
