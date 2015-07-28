@@ -125,6 +125,57 @@ class ItemManagerTest extends \PHPUnit_Framework_TestCase
         $this->assertArraySubset($item, $expected);
     }
 
+    /**
+     * @test
+     *
+     * @param string $name     商品名
+     * @param array  $expected 商品情報
+     *
+     * @dataProvider 商品情報Provider
+     */
+    public function 商品情報を取得する($name, $expected)
+    {
+        $result = $this->itemManager->getItemInfo($name);
+        $this->assertArraySubset($result, $expected);
+    }
+
+    /**
+     * データプロバイダ
+     *
+     * @return array
+     */
+    public function 商品情報Provider()
+    {
+        return [
+            [
+                "コーラ",
+                [
+                    "price" => 120,
+                    "stock" => 5
+                ]
+            ],
+            [
+                "レッドブル",
+                [
+                    "price" => 200,
+                    "stock" => 5
+                ]
+            ],
+            [
+                "水",
+                [
+                    "price" => 100,
+                    "stock" => 5
+                ]
+            ],
+            [
+                "IronMan",
+                []
+            ],
+        ];
+    }
+
+
     public function tearDown()
     {
         $this->itemManager->initialize();
