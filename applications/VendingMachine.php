@@ -63,6 +63,6 @@ class VendingMachine
      */
     public function getJuiceInfo()
     {
-        return $this->itemManager->get_items();
+        return $this->itemManager->getItems();
     }
 }
