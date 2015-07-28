@@ -65,6 +65,28 @@ class ItemManager
     }
 
     /**
+     * 商品の名前から情報を取得する
+     *
+     * @param string $name 商品の名前
+     *
+     * @return array 商品情報（価格と在庫数）
+     */
+    public function getItemPrice($name)
+    {
+        $itemInfo = [];
+        foreach ($this->items as &$item) {
+            if ($item["name"] == $name) {
+                $itemInfo = [
+                    "price" => $item["price"],
+                    "stock" => $item["stock"]
+                ];
+                break;
+            }
+        }
+        return $itemInfo;
+    }
+
+    /**
      * 該当の商品の在庫を減らす
      *
      * @param string $name 商品名
