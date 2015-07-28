@@ -36,7 +36,6 @@ class VendingMachineTest extends \PHPUnit_Framework_TestCase
     {
         $result = $this->vendingMachine->addAmount($invest);
         $this->assertEquals($expected, $result);
-        $this->vendingMachine->initialize();
     }
 
     /**
@@ -53,7 +52,6 @@ class VendingMachineTest extends \PHPUnit_Framework_TestCase
     {
         $result = $this->vendingMachine->addAmount($invest);
         $this->assertEquals($expected, $result);
-        $this->vendingMachine->initialize();
     }
 
     /**
@@ -74,7 +72,6 @@ class VendingMachineTest extends \PHPUnit_Framework_TestCase
         }
         $result = $this->vendingMachine->getAmount();
         $this->assertEquals($expected, $result);
-        $this->vendingMachine->initialize();
     }
 
     /**
@@ -99,7 +96,6 @@ class VendingMachineTest extends \PHPUnit_Framework_TestCase
         // 払い出した後は0になっているか
         $zero = $this->vendingMachine->getAmount();
         $this->assertEquals(0, $zero);
-        $this->vendingMachine->initialize();
     }
 
     /**
