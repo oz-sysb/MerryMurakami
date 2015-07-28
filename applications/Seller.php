@@ -28,6 +28,16 @@ class Seller
     }
 
     /**
+     * 初期化
+     */
+    public function initialize()
+    {
+        $this->Preserve->initialize();
+        $this->ItemManager->initialize();
+        $this->Proceeds->initialize();
+    }
+
+    /**
      * 購入できるジュースのリストを返す
      *
      * @param int $amount
