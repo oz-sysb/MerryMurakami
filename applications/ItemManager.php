@@ -15,6 +15,26 @@ class ItemManager
 
     public function __construct()
     {
+        $this->initialize();
+    }
+
+    /**
+     * @return ItemManager
+     */
+    public static function getInstance()
+    {
+        if (!isset(self::$instance)) {
+            self::$instance = new ItemManager();
+        }
+
+        return self::$instance;
+    }
+
+    /**
+     * 初期化
+     */
+    public function initialize()
+    {
         $this->items = [
             [
                 "name"  => "コーラ",
@@ -32,18 +52,6 @@ class ItemManager
                 "stock" => 5
             ]
         ];
-    }
-
-    /**
-     * @return ItemManager
-     */
-    public static function getInstance()
-    {
-        if (!isset(self::$instance)) {
-            self::$instance = new ItemManager();
-        }
-
-        return self::$instance;
     }
 
     /**

@@ -16,7 +16,7 @@ class PreserveTest extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $this->preserve = new Preserve();
+        $this->preserve = Preserve::getInstance();
     }
 
     /**
@@ -181,5 +181,10 @@ class PreserveTest extends PHPUnit_Framework_TestCase
                 [100, 100, 150]
             ],
         ];
+    }
+
+    public function tearDown()
+    {
+        $this->preserve->initialize();
     }
 }

@@ -47,7 +47,7 @@ class ItemManagerTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function 在庫がマイナスされるか()
+    public function コーラがマイナスされるか()
     {
         $item = [
             [
@@ -71,8 +71,62 @@ class ItemManagerTest extends \PHPUnit_Framework_TestCase
         $this->assertArraySubset($item, $expected);
     }
 
+    /**
+     * @test
+     */
+    public function レッドブルがマイナスされるか()
+    {
+        $item = [
+            [
+                "name"  => "コーラ",
+                "price" => 120,
+                "stock" => 5
+            ],
+            [
+                "name"  => "レッドブル",
+                "price" => 200,
+                "stock" => 4
+            ],
+            [
+                "name"  => "水",
+                "price" => 100,
+                "stock" => 5
+            ]
+        ];
+
+        $expected = $this->itemManager->minusItem('レッドブル');
+        $this->assertArraySubset($item, $expected);
+    }
+
+    /**
+     * @test
+     */
+    public function 水がマイナスされるか()
+    {
+        $item = [
+            [
+                "name"  => "コーラ",
+                "price" => 120,
+                "stock" => 5
+            ],
+            [
+                "name"  => "レッドブル",
+                "price" => 200,
+                "stock" => 5
+            ],
+            [
+                "name"  => "水",
+                "price" => 100,
+                "stock" => 4
+            ]
+        ];
+
+        $expected = $this->itemManager->minusItem('水');
+        $this->assertArraySubset($item, $expected);
+    }
+
     public function tearDown()
     {
-        unset($this->itemManager);
+        $this->itemManager->initialize();
     }
 }
