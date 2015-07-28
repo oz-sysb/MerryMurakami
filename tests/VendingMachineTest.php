@@ -188,7 +188,7 @@ class VendingMachineTest extends \PHPUnit_Framework_TestCase
         ];
     }
 
-    public function tierDown()
+    public function tearDown()
     {
         $this->vendingMachine->initialize();
     }
