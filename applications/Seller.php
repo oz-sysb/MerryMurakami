@@ -40,7 +40,7 @@ class Seller
     /**
      * 購入できるジュースのリストを返す
      *
-     * @param int $amount
+     * @param int $amount 投入されている総額
      *
      * @return array
      */
@@ -61,8 +61,8 @@ class Seller
     /**
      * 指定のジュースが購入できるか
      *
-     * @param string $name
-     * @param int    $amount
+     * @param string $name   商品名
+     * @param int    $amount 投入されている総額
      *
      * @return bool
      */
@@ -86,8 +86,8 @@ class Seller
     /**
      * ジュースを購入する
      *
-     * @param string $name
-     * @param int    $amount
+     * @param string $name   商品名
+     * @param int    $amount 投入されている総額
      *
      * @return bool
      */
