@@ -31,7 +31,7 @@ class PreserveTest extends PHPUnit_Framework_TestCase
      */
     public function 総額に加える_正常系($invest, $expected)
     {
-        $result = $this->preserve->add_amount($invest);
+        $result = $this->preserve->addAmount($invest);
         $this->assertEquals($expected, $result);
     }
 
@@ -47,7 +47,7 @@ class PreserveTest extends PHPUnit_Framework_TestCase
      */
     public function 総額に加える_異常系($invest, $expected)
     {
-        $result = $this->preserve->add_amount($invest);
+        $result = $this->preserve->addAmount($invest);
         $this->assertEquals($expected, $result);
     }
 
@@ -64,9 +64,9 @@ class PreserveTest extends PHPUnit_Framework_TestCase
     public function 総額を取り出す_正常系($invests, $expected)
     {
         foreach ($invests as $invest) {
-            $this->preserve->add_amount($invest);
+            $this->preserve->addAmount($invest);
         }
-        $result = $this->preserve->take_out_amount();
+        $result = $this->preserve->takeoutAmount();
         $this->assertEquals($expected, $result);
     }
 
@@ -83,8 +83,8 @@ class PreserveTest extends PHPUnit_Framework_TestCase
     public function 総額を教える_正常系($invests, $expected)
     {
         for ($i = 0; $i < count($invests); $i++) {
-            $this->preserve->add_amount($invests[$i]);
-            $result = $this->preserve->get_amount();
+            $this->preserve->addAmount($invests[$i]);
+            $result = $this->preserve->getAmount();
             $this->assertEquals($expected[$i], $result);
         }
     }

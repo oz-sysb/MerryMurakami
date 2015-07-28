@@ -31,7 +31,7 @@ class VendingMachine
      */
     function get_amount()
     {
-        return $this->preserve->get_amount();
+        return $this->preserve->getAmount();
     }
 
     /**
@@ -43,7 +43,7 @@ class VendingMachine
      */
     function add_amount($money)
     {
-        return $this->preserve->add_amount($money);
+        return $this->preserve->addAmount($money);
     }
 
     /**
@@ -53,7 +53,7 @@ class VendingMachine
      */
     function pay_back()
     {
-        return $this->preserve->take_out_amount();
+        return $this->preserve->takeoutAmount();
     }
 
     /**
