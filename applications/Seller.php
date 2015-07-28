@@ -22,9 +22,9 @@ class Seller
 
     public function __construct()
     {
-        $this->Preserve = new Preserve();
-        $this->ItemManager = new ItemManager();
-        //		$this->Proceeds = new Proceeds();
+        $this->Preserve = Preserve::getInstance();
+        $this->ItemManager = ItemManager::getInstance();
+        $this->Proceeds = Proceeds::getInstance();
     }
 
     /**
