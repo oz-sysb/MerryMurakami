@@ -20,8 +20,8 @@ class VendingMachine
      */
     public function __construct()
     {
-        $this->preserve = new Preserve();
-        $this->itemManager = new ItemManager();
+        $this->preserve = Preserve::getInstance();
+        $this->itemManager = ItemManager::getInstance();
     }
 
     /**
