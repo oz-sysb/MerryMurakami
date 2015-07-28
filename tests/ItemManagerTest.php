@@ -14,7 +14,7 @@ class ItemManagerTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->itemManager = new ItemManager();
+        $this->itemManager = ItemManager::getInstance();
     }
 
     /**
@@ -42,5 +42,37 @@ class ItemManagerTest extends \PHPUnit_Framework_TestCase
 
         $expected = $this->itemManager->getItems();
         $this->assertArraySubset($item, $expected);
+    }
+
+    /**
+     * @test
+     */
+    public function 在庫がマイナスされるか()
+    {
+        $item = [
+            [
+                "name"  => "コーラ",
+                "price" => 120,
+                "stock" => 4
+            ],
+            [
+                "name"  => "レッドブル",
+                "price" => 200,
+                "stock" => 5
+            ],
+            [
+                "name"  => "水",
+                "price" => 100,
+                "stock" => 5
+            ]
+        ];
+
+        $expected = $this->itemManager->minusItem('コーラ');
+        $this->assertArraySubset($item, $expected);
+    }
+
+    public function tearDown()
+    {
+        unset($this->itemManager);
     }
 }
