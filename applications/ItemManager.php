@@ -71,7 +71,7 @@ class ItemManager
      *
      * @return array 商品情報（価格と在庫数）
      */
-    public function getItemPrice($name)
+    public function getItemInfo($name)
     {
         $itemInfo = [];
         foreach ($this->items as &$item) {
