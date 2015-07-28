@@ -26,8 +26,26 @@ class Proceeds
         return self::$instance;
     }
 
+    /**
+     * 売り上げ金額を取得する。
+     *
+     * @return int
+     */
     public function getAmount()
     {
+        return $this->amount;
+    }
+
+    /**
+     * 売り上げ金額を加算する。
+     *
+     * @params int $amount 売り上げに加算する金額
+     *
+     * @return int
+     */
+    public function addAmount($amount)
+    {
+        $this->amount += $amount;
         return $this->amount;
     }
 }
