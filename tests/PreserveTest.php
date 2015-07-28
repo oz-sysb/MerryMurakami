@@ -73,6 +73,27 @@ class PreserveTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      *
+     * @param array $invests  投入金額
+     * @param int   $subMoney 総額から引く金額
+     * @param int   $expected 残った総額
+     *
+     * @return void
+     *
+     * @dataProvider 総額から引くProvider
+     */
+    public function 総額から引く($invests, $subMoney, $expected)
+    {
+        for ($i = 0; $i < count($invests); $i++) {
+            $this->preserve->addAmount($invests[$i]);
+        }
+
+        $result = $this->preserve->subAmount($subMoney);
+        $this->assertEquals($expected, $result);
+    }
+
+    /**
+     * @test
+     *
      * @param array $invests  投入金額の配列
      * @param int   $expected 取り出された総額
      *
@@ -179,6 +200,28 @@ class PreserveTest extends PHPUnit_Framework_TestCase
             [
                 [100, 'IronMan', 50],
                 [100, 100, 150]
+            ],
+        ];
+    }
+
+    /**
+     * データプロバイダ
+     * 総額から引く
+     *
+     * @return array
+     */
+    public function 総額から引くProvider()
+    {
+        return [
+            [
+                [],
+                10,
+                10
+            ],
+            [
+                [50, 100, 100],
+                120,
+                130
             ],
         ];
     }
