@@ -14,6 +14,7 @@ class Preserve
      * @var int 総額
      */
     private $amount;
+
     /**
      * @var CoinMech
      */
@@ -63,6 +64,22 @@ class Preserve
         }
         $this->amount += $money;
 
+        return $this->amount;
+    }
+
+    /**
+     * 総額から引く
+     *
+     * @param int $money 引かれる金額
+     *
+     * @return int 総額
+     */
+    public function subAmount($money)
+    {
+        if($money > $this->amount){
+            return $money;
+        }
+        $this->amount -= $money;
         return $this->amount;
     }
 
