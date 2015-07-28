@@ -99,6 +99,35 @@ class VendingMachineTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @test
+     *
+     * @return void
+     */
+    public function コーラとレッドブルと水があるか()
+    {
+        $item = [
+            [
+                "name"  => "コーラ",
+                "price" => 120,
+                "stock" => 5
+            ],
+            [
+                "name"  => "レッドブル",
+                "price" => 200,
+                "stock" => 5
+            ],
+            [
+                "name"  => "水",
+                "price" => 100,
+                "stock" => 5
+            ]
+        ];
+
+        $expected = $this->vendingMachine->getJuiceInfo();
+        $this->assertArraySubset($item, $expected);
+    }
+
+    /**
      * データプロバイダ
      * 総額に加える
      *
