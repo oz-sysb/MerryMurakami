@@ -68,14 +68,7 @@ class Seller
      */
     public function isBuyable($name, $amount)
     {
-        $items = $this->ItemManager->getItems();
-        $buy_item = array();
-        foreach ($items as $item) {
-            if ($item["name"] == $name) {
-                $buy_item = $item;
-                break;
-            }
-        }
+        $buy_item = $this->ItemManager->getItemInfo($name);
 
         // 在庫確認
         if ($buy_item["stock"] <= 0) {
