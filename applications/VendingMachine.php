@@ -29,7 +29,7 @@ class VendingMachine
      *
      * @return int 投入されている総額
      */
-    function get_amount()
+    public function getAmount()
     {
         return $this->preserve->getAmount();
     }
@@ -41,7 +41,7 @@ class VendingMachine
      *
      * @return int 受け取れなかった金額
      */
-    function add_amount($money)
+    public function addAmount($money)
     {
         return $this->preserve->addAmount($money);
     }
@@ -51,7 +51,7 @@ class VendingMachine
      *
      * @return int 投入された総額
      */
-    function pay_back()
+    public function payBack()
     {
         return $this->preserve->takeoutAmount();
     }
@@ -61,7 +61,7 @@ class VendingMachine
      *
      * @return array ジュースの情報を返す
      */
-    function get_juice_info()
+    public function getJuiceInfo()
     {
         return $this->itemManager->get_items();
     }
