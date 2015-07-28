@@ -24,6 +24,12 @@ class VendingMachine
         $this->itemManager = ItemManager::getInstance();
     }
 
+    public function initialize()
+    {
+        $this->preserve->initialize();
+        $this->itemManager->initialize();
+    }
+
     /**
      * 総額表示
      *
