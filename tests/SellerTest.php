@@ -1,7 +1,11 @@
 <?php
+namespace MerryMurakami\VendingMachine\Test;
+
+use MerryMurakami\VendingMachine\Seller;
+
 require_once(dirname(__FILE__) . '/../applications/config/autoload.php');
 
-class SellerTest extends PHPUnit_Framework_TestCase
+class SellerTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var Seller
@@ -18,7 +22,7 @@ class SellerTest extends PHPUnit_Framework_TestCase
      */
     public function 在庫があるか()
     {
-        $expected = $this->Seller->is_buyable("水", 100);
+        $expected = $this->Seller->isBuyable("水", 100);
         $this->assertTrue($expected);
     }
 
@@ -27,7 +31,7 @@ class SellerTest extends PHPUnit_Framework_TestCase
      */
     public function 百円で買えるか()
     {
-        $expected = $this->Seller->is_buyable("水", 100);
+        $expected = $this->Seller->isBuyable("水", 100);
         $this->assertTrue($expected);
     }
 
@@ -38,7 +42,7 @@ class SellerTest extends PHPUnit_Framework_TestCase
     {
         $item_list = ["水"];
 
-        $expected = $this->Seller->find_items(100);
+        $expected = $this->Seller->findItems(100);
 
         $this->assertArraySubset($item_list, $expected);
     }

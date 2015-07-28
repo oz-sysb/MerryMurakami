@@ -1,4 +1,6 @@
 <?php
+namespace MerryMurakami\VendingMachine;
+
 require_once(dirname(__FILE__) . '/config/autoload.php');
 
 class Seller
@@ -20,8 +22,8 @@ class Seller
 
     public function __construct()
     {
-        $this->Preserve = new MerryMurakami\VendingMachine\Preserve();
-        $this->ItemManager = new MerryMurakami\VendingMachine\ItemManager();
+        $this->Preserve = new Preserve();
+        $this->ItemManager = new ItemManager();
         //		$this->Proceeds = new Proceeds();
     }
 
@@ -32,13 +34,13 @@ class Seller
      *
      * @return array
      */
-    public function find_items($amount)
+    public function findItems($amount)
     {
         $items = $this->ItemManager->getItems();
 
         $find_items = array();
         foreach ($items as $item) {
-            if ($this->is_buyable($item["name"], $amount)) {
+            if ($this->isBuyable($item["name"], $amount)) {
                 $find_items[] = $item["name"];
             }
         }
@@ -54,9 +56,10 @@ class Seller
      *
      * @return bool
      */
-    public function is_buyable($name, $amount)
+    public function isBuyable($name, $amount)
     {
         $items = $this->ItemManager->getItems();
+        $buy_item = array();
         foreach ($items as $item) {
             if ($item["name"] == $name) {
                 $buy_item = $item;
@@ -87,15 +90,15 @@ class Seller
      */
     public function buy($name, $amount)
     {
-        if (!$this->is_buyable($name, $amount)) {
+        if (!$this->isBuyable($name, $amount)) {
             return false;
         }
 
         // ジュースを減らす
-        $this->ItemManager->minus_item($name);
+        $this->ItemManager->minusItem($name);
 
         // 売上を加算する
-        $this->Proceeds->add_proceeds($amount);
+        $this->Proceeds->addProceeds($amount);
 
         return true;
     }
