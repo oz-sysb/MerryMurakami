@@ -38,4 +38,23 @@ class ItemManager
     {
         return $this->items;
     }
+
+    /**
+     * 該当の商品の在庫を減らす
+     *
+     * @param string $name 商品名
+     *
+     * @return array
+     */
+    public function minusItem($name)
+    {
+        foreach($this->items as &$item)
+        {
+            if($item['name'] == $name)
+            {
+                $item['stock']--;
+            }
+        }
+        return $this->items;
+    }
 }
