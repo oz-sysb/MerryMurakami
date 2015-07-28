@@ -14,7 +14,7 @@ class ItemManagerTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->itemManager = new ItemManager();
+        $this->itemManager = ItemManager::getInstance();
     }
 
     /**
@@ -69,5 +69,10 @@ class ItemManagerTest extends \PHPUnit_Framework_TestCase
 
         $expected = $this->itemManager->minusItem('コーラ');
         $this->assertArraySubset($item, $expected);
+    }
+
+    public function tearDown()
+    {
+        unset($this->itemManager);
     }
 }

@@ -4,6 +4,11 @@ namespace MerryMurakami\VendingMachine;
 class ItemManager
 {
     /**
+     * @var ItemManager
+     */
+    private static $instance;
+
+    /**
      * @var array 商品情報
      */
     private $items;
@@ -30,6 +35,18 @@ class ItemManager
     }
 
     /**
+     * @return ItemManager
+     */
+    public static function getInstance()
+    {
+        if (!isset(self::$instance)) {
+            self::$instance = new ItemManager();
+        }
+
+        return self::$instance;
+    }
+
+    /**
      * 商品情報を取得
      *
      * @return array 商品情報
@@ -48,13 +65,12 @@ class ItemManager
      */
     public function minusItem($name)
     {
-        foreach($this->items as &$item)
-        {
-            if($item['name'] == $name)
-            {
+        foreach ($this->items as &$item) {
+            if ($item['name'] == $name) {
                 $item['stock']--;
             }
         }
+
         return $this->items;
     }
 }
