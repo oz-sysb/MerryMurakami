@@ -40,7 +40,7 @@ class Seller
     /**
      * 購入できるジュースのリストを返す
      *
-     * @param int $amount
+     * @param int $amount 投入されている総額
      *
      * @return array
      */
@@ -61,21 +61,14 @@ class Seller
     /**
      * 指定のジュースが購入できるか
      *
-     * @param string $name
-     * @param int    $amount
+     * @param string $name   商品名
+     * @param int    $amount 投入されている総額
      *
      * @return bool
      */
     public function isBuyable($name, $amount)
     {
-        $items = $this->ItemManager->getItems();
-        $buy_item = array();
-        foreach ($items as $item) {
-            if ($item["name"] == $name) {
-                $buy_item = $item;
-                break;
-            }
-        }
+        $buy_item = $this->ItemManager->getItemInfo($name);
 
         // 在庫確認
         if ($buy_item["stock"] <= 0) {
@@ -93,8 +86,8 @@ class Seller
     /**
      * ジュースを購入する
      *
-     * @param string $name
-     * @param int    $amount
+     * @param string $name   商品名
+     * @param int    $amount 投入されている総額
      *
      * @return bool
      */
