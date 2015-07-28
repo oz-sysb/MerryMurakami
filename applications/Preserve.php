@@ -6,6 +6,11 @@ require_once(dirname(__FILE__) . '/config/autoload.php');
 class Preserve
 {
     /**
+     * @var Preserve
+     */
+    private static $instance;
+
+    /**
      * @var int 総額
      */
     private $amount;
@@ -18,6 +23,26 @@ class Preserve
      * コンストラクタ
      */
     public function __construct()
+    {
+        $this->initialize();
+    }
+
+    /**
+     * @return Preserve
+     */
+    public static function getInstance()
+    {
+        if (!isset(self::$instance)) {
+            self::$instance = new Preserve();
+        }
+
+        return self::$instance;
+    }
+
+    /**
+     * 初期化
+     */
+    public function initialize()
     {
         $this->amount = 0;
         $this->coinMech = new CoinMech();
