@@ -44,7 +44,7 @@ class ItemManager
      *
      * @param string $name 商品名
      *
-     * @return array
+     * @return array 商品情報
      */
     public function minusItem($name)
     {
